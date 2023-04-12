@@ -1,9 +1,3 @@
-#GitHubに載せるプログラム
-
-#前回の処理が影響しないように、ここでけしておく
-rm(list = ls(all.names = TRUE))
-
-#分析に必要なパッケージは最初に読んでおく
 library(ggplot2)
 library(tidyverse)
 library(data.table)
@@ -62,12 +56,11 @@ l2 <- glm(cat ~ pos_contrast_step, data = subset(dat1,dat1$age =="adults" & (dat
 summary(l1)#linear model
 summary(l2)#step model
 
-plot(ggpredict(l1), rawdata = T)#linearはpositionによって上がっていっている
-plot(ggpredict(l2), rawdata = T)#段階は#4と#5は同じで#6でだけ上がっている
+plot(ggpredict(l1), rawdata = T)
+plot(ggpredict(l2), rawdata = T)
 
 
 #Analysis of Experiment 2
-
 
 dat2 <- dat[dat$inserted_position =="#6",] #select trials of Exp. 2
 
@@ -99,8 +92,8 @@ l2 <- glm(cat ~ pos_contrast_step, data = subset(dat2,dat2$age =="children"), fa
 summary(l1)#linear model
 summary(l2)#step model
 
-plot(ggpredict(l1), rawdata = T)#linearはpositionによって上がっていっている
-plot(ggpredict(l2), rawdata = T)#段階は#4と#5は同じで#6でだけ上がっている
+plot(ggpredict(l1), rawdata = T)
+plot(ggpredict(l2), rawdata = T)
 
 
 
